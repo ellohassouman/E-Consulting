@@ -1,0 +1,8 @@
+
+{
+  "RouteBaseLarvelLocal": "http://127.0.0.1:8000/api/",
+  "RouteBaseLaravel": "http://majiid-group.com/backend/public/api/",
+  "RouteBaseApi":"http://127.0.0.1:8000/api/",
+  "RouteBaseApiHttp":"http://leverticalsci.com/Backend/public/api/",
+  "RouteBaseApiHttps":"https://leverticalsci.com/Backend/public/api/"
+}

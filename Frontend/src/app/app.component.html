@@ -1,0 +1,92 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="black"
+  type="timer"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<app-header></app-header>
+
+
+    <!-- ==== dashboard section start ==== -->
+    <div class="dashboard section__space__bottom">
+      <div class="container">
+          <div class="dashboard__area">
+              <div class="row">
+                  <div class="col-xxl-3">
+                      <div class="sidebar">
+                          <a href="javascript:void(0)" class="close__sidebar">
+                              <i class="fa-solid fa-xmark"></i>
+                          </a>
+                          <div class="sidenav__wrapper">
+                              <ul>
+                                  <!-- <li>
+                                      <a [routerLink]="['Accueil']" routerLinkActive="sidenav__active">
+                                          <img src="assets/images/icons/dashboard.png" alt="Dashboard" /> Dashboard
+                                      </a>
+                                  </li> -->
+                                  <li>
+                                      <a [routerLink]="['Verify']" routerLinkActive="sidenav__active">
+                                          <img src="assets/images/icons/investments.png" alt="Investments" />
+                                          Vérification
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['Demandes']" routerLinkActive="sidenav__active">
+                                          <img src="assets/images/icons/transactions.png" alt="Transactions" />
+                                          Mes demandes
+                                      </a>
+                                  </li>
+                                  <!-- <li>
+                                      <a href="withdraw.html">
+                                          <img src="assets/images/icons/withdraw.png" alt="Withdraw" /> Withdraw
+                                      </a>
+                                  </li> -->
+                                  <li>
+                                      <a [routerLink]="['Compte']" routerLinkActive="sidenav__active">
+                                          <img src="assets/images/icons/account.png" alt="Account" /> Compte
+                                      </a>
+                                  </li>
+                              </ul>
+                              <hr />
+                              <ul class="logout">
+                                  <li>
+                                      <a href="login.html">
+                                          <img src="assets/images/icons/logout.png" alt="Logout" /> Deconnexion
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="sidenav__wrapper sidenav__footer">
+                              <h6>Dernière de connexion</h6>
+                              <hr />
+                              <div class="sidenav__time">
+                                  <p class="secondary"><img src="assets/images/icons/calendar.png" alt="Calendar" />
+                                      02.01.2022</p>
+                                  <p class="secondary">15:48:13</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xxl-9">
+                      <div class="main__content">
+                          <div class="collapse__sidebar">
+                              <h4>Dashboard</h4>
+                              <a href="javascript:void(0)" class="collapse__sidebar__btn">
+                                  <i class="fa-solid fa-bars-staggered"></i>
+                              </a>
+                          </div>
+                          <router-outlet></router-outlet>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- ==== #dashboard section end ==== -->
+
+
+
+<!-- <app-footer></app-footer> -->

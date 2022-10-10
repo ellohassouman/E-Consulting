@@ -1,0 +1,295 @@
+<div class="main__content-dashboard">
+  <div class="breadcrumb-dashboard">
+      <h5>Account</h5>
+      <div>
+          <a href="index.html">Home</a>
+          <i class="fa-solid fa-arrow-right-long"></i>
+          <a href="javascript:void(0)">Account</a>
+      </div>
+  </div>
+  <div class="account-info">
+      <div class="account-info__btn-wrapper">
+          <a href="account.html#general"
+              class="account-info__btn account-info__btn-active button button--effect">Général</a>
+          <!-- <a href="account.html#billing" class="account-info__btn button button--effect">Billing</a>
+          <a href="account.html#security" class="account-info__btn button button--effect">Security</a> -->
+      </div>
+      <div class="account-content_wrapper">
+          <div class="account-content" id="general">
+              <div class="avatar-wrapper">
+                  <div class="avatar-content">
+                      <div class="avatar">
+                          <img src="assets/images/team/ryan.png" alt="Avatar" />
+                      </div>
+                      <div class="avatar-content__guideline">
+                          <h6>Your Avatar</h6>
+                          <p>Profile picture size: 400px x 400px</p>
+                      </div>
+                  </div>
+                  <form action="account.html#" method="post">
+                      <input type="file" name="avatar_upload" id="avatarUpload" />
+                      <label for="avatarUpload">
+                          Upload new avatar
+                      </label>
+                  </form>
+              </div>
+              <form action="account.html#" name="save__from" method="post" class="save__form">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="input input--secondary">
+                              <label for="saveFirstName">First Name</label>
+                              <input type="text" name="save__first__name"
+                                  id="saveFirstName" placeholder="First Name"
+                                  required="required" />
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="input input--secondary">
+                              <label for="saveLastName">Last Name</label>
+                              <input type="text" name="save__last__name" id="saveLastName"
+                                  placeholder="Last Name" required="required" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="input input--secondary">
+                              <label for="saveEmail">Email</label>
+                              <input type="email" name="save_email" id="saveEmail"
+                                  placeholder="Enter Your Email" required="required" />
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="input input--secondary">
+                              <label for="savePhone">Phone</label>
+                              <input type="number" name="save_phone" id="savePhone"
+                                  placeholder="345-323-1234" required="required" />
+                          </div>
+                      </div>
+                  </div>
+                  <div>
+                      <button type="submit" class="button button--effect">Save
+                          Changes</button>
+                  </div>
+              </form>
+
+              <div class="delete-account">
+                  <div class="delete-content">
+                      <h6>Delete your account</h6>
+                      <p class="secondary">Before deleting your account, please note that
+                          if you delete your account, Dash cannot recover it.</p>
+                  </div>
+                  <a href="account.html#" class="button button--effect">Delete</a>
+              </div>
+          </div>
+          <div class="account-content" id="billing">
+              <div class="account-content-single mt-0">
+                  <div class="intro">
+                      <h5>Payment Methods</h5>
+                      <a href="account.html#">Add Method</a>
+                  </div>
+                  <div class="account-content-single__inner">
+                      <div class="content content-alt">
+                          <img src="assets/images/visa.png" alt="Visa" />
+                          <div>
+                              <h6>Visa ending in 1234</h6>
+                              <p>Expires 1/2025</p>
+                          </div>
+                      </div>
+                      <div class="content-right">
+                          <p>Default</p>
+                      </div>
+                  </div>
+                  <div class="account-content-single__inner">
+                      <div class="content content-alt">
+                          <img src="assets/images/mastercard.png" alt="Mastercard" />
+                          <div>
+                              <h6>Mastercard ending in 1234</h6>
+                              <p>Expires 1/2025</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="investment-table">
+                  <div class="intro">
+                      <h5>Invoices</h5>
+                  </div>
+                  <div class="table-wrapper">
+                      <table>
+                          <tr>
+                              <th>INVOICE ID</th>
+                              <th>AMOUNT</th>
+                              <th>DATE</th>
+                              <th>STATUS</th>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Invoice #123
+                              </td>
+                              <td>$500.00</td>
+                              <td>18.03.2022</td>
+                              <td><span class="process"></span>Processing</td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Invoice #123
+                              </td>
+                              <td>$500.00</td>
+                              <td>18.03.2022</td>
+                              <td><span class="paid"></span>Paid</td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Invoice #123
+                              </td>
+                              <td>$500.00</td>
+                              <td>18.03.2022</td>
+                              <td><span class="paid"></span>Paid</td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Invoice #123
+                              </td>
+                              <td>$500.00</td>
+                              <td>18.03.2022</td>
+                              <td><span class="paid"></span>Paid</td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Invoice #123
+                              </td>
+                              <td>$500.00</td>
+                              <td>18.03.2022</td>
+                              <td><span class="paid"></span>Paid</td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="account-content" id="security">
+              <div class="two-factor-wrapper">
+                  <div class="two-factor-content">
+                      <h6>Two Factor Authentication</h6>
+                      <p>Two-Factor Authentication (2FA) can be used to help protect your
+                          account</p>
+                  </div>
+                  <a href="account.html#" class="button button--effect">Enable</a>
+              </div>
+              <div class="change__pass">
+                  <div class="row neutral-row">
+                      <div class="col-md-6">
+                          <div class="change__pass-content column__space">
+                              <h5>Change Password</h5>
+                              <p>You can always change your password for security reasons
+                                  or reset your password in case you forgot it.</p>
+                              <a href="account.html#" class="button button--effect">Forgot
+                                  Password?</a>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <form action="account.html#" name="change__pass" method="post">
+                              <div class="input input--secondary">
+                                  <label for="currentPass">Current Password</label>
+                                  <input type="password" name="current_pass"
+                                      id="currentPass" placeholder="Current Password"
+                                      required="required" />
+                              </div>
+                              <div class="input input--secondary">
+                                  <label for="newPass">New Password</label>
+                                  <input type="password" name="new_pass" id="newPass"
+                                      placeholder="New Password" required="required" />
+                              </div>
+                              <div class="input input--secondary">
+                                  <label for="conNewPass">Confirm New Password</label>
+                                  <input type="password" name="con_new_pass"
+                                      id="conNewPass" placeholder="Confirm Password"
+                                      required="required" />
+                              </div>
+                              <div>
+                                  <button type="submit"
+                                      class="button button--effect">Update
+                                      Password</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+              <div class="account-content-single account-content-single__alt">
+                  <div class="intro">
+                      <h5>Additional Security</h5>
+                      <a href="account.html#">Add Method</a>
+                  </div>
+                  <div class="account-content-single__inner">
+                      <div class="content">
+                          <h6>SMS recovery</h6>
+                          <p>Number ending with 1234</p>
+                      </div>
+                      <div class="content-right">
+                          <a href="account.html#" class="button button--effect">Disable SMS</a>
+                      </div>
+                  </div>
+                  <div class="account-content-single__inner">
+                      <div class="content">
+                          <h6>Autheticator App</h6>
+                          <p>Google Authenticator</p>
+                      </div>
+                      <div class="content-right">
+                          <a href="account.html#" class="button button--effect alt">Configure</a>
+                      </div>
+                  </div>
+                  <div class="account-content-single__inner">
+                      <div class="content">
+                          <h6>SSL Certificate</h6>
+                          <p>Secure Sockets Layer</p>
+                      </div>
+                      <div class="content-right">
+                          <a href="account.html#" class="button button--effect alt">Configure</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="account-content-single account-content-single__alt">
+                  <div class="intro">
+                      <h5>Your devices</h5>
+                      <a href="account.html#">Log out on all devices</a>
+                  </div>
+                  <div class="account-content-single__inner account-content-single__inner-alt">
+                      <div class="content">
+                          <img src="assets/images/icons/mobile.png" alt="Mobile" />
+                          <div class="content__alt">
+                              <h6>Iphone 13 Pro Max</h6>
+                              <p>New York City · June 20 at 14:00</p>
+                          </div>
+                      </div>
+                      <div class="content-right">
+                          <a href="login.html" class="button button--effect alt">Log Out</a>
+                      </div>
+                  </div>
+                  <div class="account-content-single__inner account-content-single__inner-alt">
+                      <div class="content">
+                          <img src="assets/images/icons/tablet.png" alt="Tablet" />
+                          <div class="content__alt">
+                              <h6>iPad Pro</h6>
+                              <p>New York City · June 20 at 14:00</p>
+                          </div>
+                      </div>
+                      <div class="content-right">
+                          <a href="login.html" class="button button--effect alt">Log Out</a>
+                      </div>
+                  </div>
+                  <div class="account-content-single__inner account-content-single__inner-alt">
+                      <div class="content">
+                          <img src="assets/images/icons/desktop.png" alt="Desktop" />
+                          <div class="content__alt">
+                              <h6>iMac OSX</h6>
+                              <p>New York City · June 20 at 14:00</p>
+                          </div>
+                      </div>
+                      <div class="content-right">
+                          <a href="login.html" class="button button--effect alt">Log Out</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

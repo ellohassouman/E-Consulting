@@ -1,0 +1,50 @@
+ <!-- ==== dashboard header start ==== -->
+ <header class="dashboard-header">
+  <div class="container">
+      <div class="dashboard-header__area">
+          <a href="/" class="header-logo">
+            <img src="assets/images/icons/ivorycoast.png" alt="Logo" class="logo" />
+          </a>
+          <div class="dashboard-header__area-content">
+              <div class="notification-area">
+                  <a href="javascript:void(0)" class="icon__wrapper notification__icon" (click)="ShowNotification()">
+                      <i class="fa-solid fa-bell"></i>
+                      <span>01</span>
+                  </a>
+                  <div class="notification__wrapper">
+                      <div class="notification__head">
+                          <p class="text-center">1 Nouvelle(s)</p>
+                          <p class="text-center">Notification(s)</p>
+                      </div>
+                      <div class="notification__single-wrapper">
+                          <div class="notification__single">
+                              <a href="javascript:void(0)">
+                                  <h6>Bienvenue sur Levertical</h6>
+                                  <p>Nous vous souhaitons la bienvenue dans notre communauté
+                                  </p>
+                              </a>
+                              <p class="time">Il y a 1 min</p>
+                          </div>
+                      </div>
+
+                      <div class="mark__read">
+                          <a href="javascript:void(0)">Tout marquer comme lu</a>
+                      </div>
+                  </div>
+              </div>
+              <!-- <div class="dashboard-language">
+                  <select class="select-dashboard-language">
+                      <option value="english">En</option>
+                      <option value="australia">Aus</option>
+                      <option value="germany">GER</option>
+                      <option value="argentina">Arg</option>
+                  </select>
+              </div> -->
+              <a [routerLink]="['Compte']" routerLinkActive="sidenav__active" class="profile">
+                <img src="assets/images/profile.png" alt="Profile" />
+              </a>
+          </div>
+      </div>
+  </div>
+</header>
+<!-- ==== #dashboard header end ==== -->
