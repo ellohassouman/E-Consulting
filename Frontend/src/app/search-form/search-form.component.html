@@ -17,41 +17,32 @@
       <div class="account-content_wrapper">
           <div class="account-content" id="general">
 
-              <mat-stepper class="demo-stepper" #stepper>
+              <mat-stepper [linear]="true" class="demo-stepper" #stepper>
 
-                <mat-step>
+                <mat-step [stepControl]="DemandeurFormGroup">
+                  <form [formGroup]="DemandeurFormGroup">
                   <ng-template matStepLabel>Done</ng-template>
-                 <div class="row d-flex justify-content-center">
-                      <div class="col-sm-6">
-                        <div class="row">
-                          <div class="col-sm-6">
-                              <div class="input input--secondary">
-                                  <label for="saveFirstName">Nom demandeur</label>
-                                  <input type="text" name="save__first__name"
-                                      id="saveFirstName" placeholder="Nom demandeur"
-                                      required="required" />
-                              </div>
-                          </div>
-                          <div class="col-sm-6">
-                              <div class="input input--secondary">
-                                  <label for="saveLastName">Date de demande</label>
-                                  <input type="date" name="save__last__name" id="saveLastName"
-                                      placeholder="01/01/2022" required="required" />
-                              </div>
-                          </div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-sm-6">
+                      <div class="input input--secondary">
+                          <label for="saveFirstName">Nom demandeur *</label>
+                          <input type="text" formControlName="NomDemandeur"
+                              id="saveFirstName" placeholder="Nom demandeur"
+                              required="required" />
                       </div>
-                      </div>
-                  </div>
+                    </div>
+                    </div>
+                  </form>
                 </mat-step>
 
-                <mat-step [stepControl]="firstFormGroup">
-                  <form [formGroup]="firstFormGroup">
+                <mat-step [stepControl]="ExtraitFormGroup">
+                  <form [formGroup]="ExtraitFormGroup">
                     <ng-template matStepLabel>Fill out your name</ng-template>
                     <div class="row d-flex justify-content-center">
                       <div class="col-sm-6">
                           <div class="input input--secondary">
                               <label for="saveFirstName">N° Extrait de naissance</label>
-                              <input type="text" name="save__first__name"
+                              <input type="text" formControlName="NumeroExtrait" [style]="ExtraitFormGroup.invalid ? StyleInput : ''"
                                   id="saveFirstName" placeholder="N° Extrait de naissance"
                                   required="required" />
                           </div>
@@ -61,15 +52,15 @@
                   </form>
                 </mat-step>
                 <mat-step
-                  [stepControl]="secondFormGroup"
+                  [stepControl]="PereFormGroup"
                   label="Fill out your address"
                   optional>
-                  <form [formGroup]="secondFormGroup">
+                  <form [formGroup]="PereFormGroup">
                     <div class="row d-flex justify-content-center">
                       <div class="col-sm-6">
                           <div class="input input--secondary">
                               <label for="saveFirstName">N° Pièce du père</label>
-                              <input type="text" name="save__first__name"
+                              <input type="text" formControlName="NumeroPere" [style]="PereFormGroup.invalid ? StyleInput : ''"
                                   id="saveFirstName" placeholder="N° Pièce du père"
                                   required="required" />
                           </div>
@@ -77,24 +68,29 @@
                   </div>
                   </form>
                 </mat-step>
-                <mat-step>
-                  <ng-template matStepLabel>Done</ng-template>
-                 <div class="row d-flex justify-content-center">
+                <mat-step
+                  [stepControl]="MereFormGroup"
+                  label="Fill out your address"
+                  optional>
+                  <form [formGroup]="MereFormGroup">
+                    <div class="row d-flex justify-content-center">
                       <div class="col-sm-6">
                           <div class="input input--secondary">
                               <label for="saveFirstName">N° Pièce de la mère</label>
-                              <input type="text" name="save__first__name"
+                              <input type="text" formControlName="NumeroMere" [style]="MereFormGroup.invalid ? StyleInput : ''"
                                   id="saveFirstName" placeholder="N° Pièce de la mère"
                                   required="required" />
                           </div>
                       </div>
                   </div>
+                  </form>
                 </mat-step>
               </mat-stepper>
 
               <div class="d-flex justify-content-center">
-                <button type="submit" class="button button--effect">Rechercher</button>
-            </div>
+                <button type="submit" class="button button--effect" (click)="goBack(stepper)" *ngIf="stepper.selectedIndex!=0">Retour</button>
+                <button type="submit" class="button button--effect" (click)="goForward(stepper)" *ngIf="stepper.selectedIndex!=3">Suivant</button>
+              </div>
 
               <div class="investment-table">
                 <div class="intro">
@@ -106,24 +102,24 @@
                             <th>TYPE DE DOCUMENT</th>
                             <th>DATE</th>
                             <th>VISUALISER</th>
-                            <th>STATUS</th>
+                            <!-- <th>STATUS</th> -->
                         </tr>
-                        <tr>
+                        <tr *ngFor="let item of Result">
                             <td>
-                                Extrait de naissance
+                                {{item.Libelle}}
                             </td>
-                            <td>18.03.2022</td>
+                            <td>{{item.Date |date }}</td>
                             <td><img src="assets/images/icons/PDF_icon.png" style="width: 40px;" alt="Investment" /></td>
-                            <td><span class="process"></span>En attente de validation</td>
+                            <!-- <td><span class="process"></span>En attente de validation</td> -->
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 Certificat de nationnalité
                             </td>
                             <td>18.03.2022</td>
                             <td><img src="assets/images/icons/PDF_icon.png" style="width: 40px;" alt="Investment" /></td>
                             <td><span class="paid"></span>Validé</td>
-                        </tr>
+                        </tr> -->
 
                     </table>
                 </div>

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -13,6 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from "@angular/common/http";
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 
 
@@ -24,8 +28,8 @@ const appRoutes: Routes = [
   { path: 'Verify', component: SearchFormComponent},
   { path: 'Demandes', component: DemandeComponent},
   { path: 'Compte', component: CompteComponent},
-  // { path: '', redirectTo: 'Verify', pathMatch:"prefix" },
-  { path: '', redirectTo: 'Accueil', pathMatch:"prefix" },
+  { path: '', redirectTo: 'Verify', pathMatch:"prefix" },
+  // { path: '', redirectTo: 'Accueil', pathMatch:"prefix" },
   ]
 
 
@@ -48,9 +52,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    HttpClientModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: "fr-FR" }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
