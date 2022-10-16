@@ -3,6 +3,6 @@
   "Libelle" : "Carte Nationnale D'identité",
   "Date" : "11-10-2022",
   "TypeDocumentId" : 2,
-  "LienDocument" : "/assets/pdf/ExtraitNaissance.pdf"
+  "LienDocument" : "assets/pdf/ExtraitNaissance.pdf"
 }
 ]
