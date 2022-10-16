@@ -6,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { SearchFormComponent } from './search-form/search-form.component';
-import { DemandeComponent } from './demande/demande.component';
+import { SearchFormComponent } from './Dashboard/search-form/search-form.component';
+import { DemandeComponent } from './Dashboard/demande/demande.component';
 import { CompteComponent } from './compte/compte.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { LoginComponent } from './Dashboard/Security/login/login.component';
+import { MainComponent } from './Dashboard/main/main.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -24,11 +27,19 @@ registerLocaleData(localeFr, 'fr');
 
 
 const appRoutes: Routes = [
-  { path: 'Accueil', component: HomeComponent},
-  { path: 'Verify', component: SearchFormComponent},
-  { path: 'Demandes', component: DemandeComponent},
-  { path: 'Compte', component: CompteComponent},
-  { path: '', redirectTo: 'Verify', pathMatch:"prefix" },
+
+  { path: 'Login', component: LoginComponent},
+
+      { path: 'Dashboard', component: MainComponent,
+      children: [
+        { path: '', component: DemandeComponent },
+        { path: 'DashboardComponent', component: HomeComponent},
+        { path: 'Verify', component: SearchFormComponent},
+        { path: 'Demandes', component: DemandeComponent},
+        { path: 'Compte', component: CompteComponent},
+      ]
+      },
+      { path: '', redirectTo: 'Login', pathMatch:"prefix" },
   // { path: '', redirectTo: 'Accueil', pathMatch:"prefix" },
   ]
 
@@ -43,6 +54,8 @@ const appRoutes: Routes = [
     SearchFormComponent,
     DemandeComponent,
     CompteComponent,
+    LoginComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +66,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
+    PdfViewerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ { provide: LOCALE_ID, useValue: "fr-FR" }],

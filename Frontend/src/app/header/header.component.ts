@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequesterService } from '../Services/requester.service';
 
 declare function Notification() : any;
 
@@ -9,9 +10,10 @@ declare function Notification() : any;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public RequesterService : RequesterService) { }
 
   ngOnInit(): void {
+    console.log(this.RequesterService.GetCurrentRoute())
   }
 
   ShowNotification()

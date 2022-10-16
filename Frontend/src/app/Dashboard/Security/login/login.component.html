@@ -1,0 +1,37 @@
+<div class="wrapper bg__img" data-background="./assets/images/registration-bg.png">
+
+  <!-- ==== registration section start ==== -->
+  <section class="registration clear__top">
+      <div class="container">
+          <div class="registration__area">
+              <h4 class="neutral-top">Connexion</h4>
+              <!-- <p *ngIf="FromSubmit">Vous n'avez pas de compte ? <a [routerLink]="['/Registration/', FromSubmit]">Enregistrer vous</a></p> -->
+              <form [formGroup]="SecurityService.PersonneFormroup" (ngSubmit)="SecurityService.CheckCredentials()" name="login__form" class="form__login">
+                  <div class="input input--secondary">
+                      <label for="loginMail">Email*</label>
+                      <input type="email" name="login__email" id="loginMail" formControlName="Email" placeholder="Entrer votre addresse mail"
+                          required="required" />
+                  </div>
+                  <div class="input input--secondary">
+                      <label for="loginPass">Mot de passe*</label>
+                      <input type="password" name="login__pass" id="loginPass" formControlName="MotDePasse" placeholder="Mot de passe"
+                          required="required" />
+                  </div>
+                  <div class="checkbox login__checkbox">
+                      <label>
+                          <input type="checkbox" id="remeberPass" name="remeber__pass" value="remember" />
+                          <span class="checkmark"></span>
+                          Rester connecté
+                      </label>
+                      <a href="javascript:void(0)">Mot de passe oublié</a>
+                  </div>
+                  <div class="input__button">
+                      <button type="submit" class="button button--effect">Se Connecter</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </section>
+  <!-- ==== #registration section end ==== -->
+
+</div>

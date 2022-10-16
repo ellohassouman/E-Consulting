@@ -3,9 +3,9 @@
   <div class="container">
       <div class="dashboard-header__area">
           <a href="/" class="header-logo">
-            <img src="assets/images/icons/ivorycoast.png" alt="Logo" class="logo" />
+            <img src="assets/images/icons/ivorycoast.png" alt="Logo" class="logo" style="width: 80px;" />
           </a>
-          <div class="dashboard-header__area-content">
+          <div class="dashboard-header__area-content" *ngIf="RequesterService.GetCurrentRoute()!='/'">
               <div class="notification-area">
                   <a href="javascript:void(0)" class="icon__wrapper notification__icon" (click)="ShowNotification()">
                       <i class="fa-solid fa-bell"></i>

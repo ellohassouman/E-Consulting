@@ -10,7 +10,7 @@ import { of } from 'rxjs';
 // import { SpinnerService } from './spinner.service';
 import { JsonPipe, UpperCasePipe } from '@angular/common';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { RouteModel } from './Models/route-model.model';
+import { RouteModel } from '../Models/route-model.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
@@ -24,6 +24,8 @@ export class RequesterService {
   RouteBase!: string; //=Configuration.RouteBaseAsp;
   response! : any;
   isOk: number=0;
+  LinkDocument : string=""
+  CurrentLink: string="";
 
 
 
@@ -146,6 +148,19 @@ async GetConfig()
 
     }
 
+    private async PostLocal(target : string, data : object)
+    {
+      await this.GetConfig()
+      return this.httpClient
+      .post(target,data)
+      .pipe(
+        map(response => response),
+        catchError(errorResponse => this.handleError(this.ActivatedRoute.snapshot, errorResponse),
+        )
+      )
+
+    }
+
 
   private Subscriber(Observable : Observable<any>,target: any)
   {
@@ -200,6 +215,13 @@ async GetConfig()
     await this.Subscriber(await this.Put(targetapi, data),targetapi)
   }
 
+
+  async AsyncPostResponseLocal(targetapi : string, data : any)
+  {
+    await this.Subscriber(await this.PostLocal(targetapi, data),targetapi)
+  }
+
+
   async AsyncPostResponse(targetapi : string, data : any,ShowLoader : boolean=false,AutoCloseLoader : boolean=false, ShowSucessmessage : boolean=true,message : string="")
   {
     Swal.close()
@@ -210,7 +232,7 @@ async GetConfig()
     console.log(data)
     this.isOk=0;
     this.response=null;
-    await this.Subscriber(await this.Post(targetapi, data),targetapi)
+    await this.Subscriber(await this.PostLocal(targetapi, data),targetapi)
     this.response ? this.isOk=1 : this.isOk=0
 
     if(this.isOk)
@@ -235,6 +257,8 @@ async GetConfig()
     }
 
   }
+
+
 
   async AsyncGetResponseWithJSON(targetapi : string, data : any,ShowLoader : boolean=false,AutoCloseLoader : boolean=false,message='')
   {
@@ -355,6 +379,12 @@ async GetConfig()
           console.log('I was closed by the timer')
         }
       })
+    }
+
+    GetCurrentRoute()
+    {
+      this.CurrentLink =this.router.url
+      return this.CurrentLink
     }
 
 

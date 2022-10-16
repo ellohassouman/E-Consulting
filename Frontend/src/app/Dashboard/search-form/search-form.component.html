@@ -1,0 +1,259 @@
+<div class="main__content-dashboard">
+  <div class="breadcrumb-dashboard">
+      <h5>Vérification</h5>
+      <div>
+          <a href="index.html">Dashbord</a>
+          <i class="fa-solid fa-arrow-right-long"></i>
+          <a href="javascript:void(0)">Vérification</a>
+      </div>
+  </div>
+  <div class="account-info">
+      <!-- <div class="account-info__btn-wrapper">
+          <a href="account.html#general"
+              class="account-info__btn account-info__btn-active button button--effect">General</a>
+          <a href="account.html#billing" class="account-info__btn button button--effect">Billing</a>
+          <a href="account.html#security" class="account-info__btn button button--effect">Security</a>
+      </div> -->
+      <div class="account-content_wrapper">
+          <div class="account-content" id="general">
+
+            <!-- <form action="account.html#" name="save__from" method="post" class="save__form">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <div class="input input--secondary">
+                        <label for="saveFirstName">Nom demandeur *</label>
+                          <input type="text" name="save__first__name"
+                              id="saveFirstName" placeholder="NomDemandeur" formControlName="NomDemandeur"
+                              required="required" />
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="input input--secondary">
+                        <label for="saveFirstName">N° Extrait de naissance *</label>
+                        <input type="text" formControlName="NumeroExtrait" (blur)="GetDocument(EnumTypeDocument.ExtraitNaissance)"
+                        placeholder="N° Extrait de naissance" required="required" />
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
+                      <div class="input input--secondary">
+                        <label for="saveFirstName">N° Pièce d'un des parents *</label>
+                        <input type="text" formControlName="NumeroPere"
+                            id="saveFirstName" placeholder="N° Pièce du père"
+                            required="required" />
+                      </div>
+                  </div>
+
+              </div>
+              <div>
+                  <button type="submit" class="button button--effect">Save
+                      Changes</button>
+              </div>
+          </form> -->
+<!--
+          <pdf-viewer src="assets/pdf/ASSOUMAN ELLOH CV (ancien).pdf"
+          [render-text]="true"
+          [original-size]="false"
+          style="width: 400px; height: 500px"
+          ></pdf-viewer> -->
+
+              <mat-stepper [linear]="true" class="demo-stepper" #stepper>
+
+                <mat-step [stepControl]="TypeNationnaliteFormGroup" label="Type de nationnalité">
+                  <form [formGroup]="TypeNationnaliteFormGroup">
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-sm-12">
+                      <div class="regi__type regi__type1">
+                        <label for="typeSelect">Type de document</label>
+                        <select class="type__select" id="tarifs" >
+                            <option value="1" >Certificat de nationnalité </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6" >
+                      <div class="regi__type">
+                        <label for="typeSelect">Type de nationnalité</label>
+                        <select class="type__select" class="nice-select" formControlName="TypeNationnalite" id="TypeNationnalite">
+                            <option value="1" >Ivoirien d'origine</option>
+                            <option value="2" >Par adoption</option>
+                            <option value="3" >Par déclaration</option>
+                            <option value="4" >Par Mariage</option>
+                        </select>
+                      </div>
+                    </div>
+                    </div>
+
+                  </form>
+                </mat-step>
+
+                <mat-step [stepControl]="InformationFormGroup">
+                  <form [formGroup]="InformationFormGroup" class="needs-validation">
+                    <ng-template matStepLabel>Renseigner les informations</ng-template>
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-sm-6">
+                          <div class="input input--secondary">
+                            <label for="saveFirstName">Nom demandeur *</label>
+                              <input type="text" name="save__first__name"
+                                  id="saveFirstName" placeholder="NomDemandeur" formControlName="NomDemandeur"
+                                  required="required" />
+                                <div class="invalid-feedback">
+                                  Cette information est obligatoire
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row" *ngIf="TypeNationnaliteId==EnumTypeNationnalite.Origine">
+                    <div class="col-sm-6">
+                        <div class="input input--secondary">
+                          <label for="saveFirstName">N° Extrait de naissance *</label>
+                          <input type="text" formControlName="NumeroExtrait" (blur)="GetDocument(EnumTypeDocument.ExtraitNaissance)"
+                          placeholder="N° Extrait de naissance" required="required" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <div class="input input--secondary">
+                        <label for="saveFirstName">N° Pièce d'un des parents *</label>
+                        <input type="text"
+                            id="saveFirstName" placeholder="N° Pièce parents" formControlName="NumeroPieceParent"
+                            (blur)="GetDocument(EnumTypeDocument.CarteNationnale)"
+                            required="required" />
+                      </div>
+                  </div>
+
+                </div>
+
+
+                  <div class="row" *ngIf="TypeNationnaliteId==EnumTypeNationnalite.Adoption">
+                    <div class="col-sm-6">
+                      <div class="input input--secondary">
+                        <label for="saveFirstName">N° Jugement d'adoption</label>
+                        <input type="text"
+                            id="saveFirstName" placeholder="N° Pièce du père" formControlName="NumeroJugement"
+                            required="required" />
+                      </div>
+                  </div>
+
+                    <div class="col-sm-6">
+                        <div class="input input--secondary">
+                          <label for="saveFirstName">N° Pièce d'un des parents adoptif *</label>
+                          <input type="text"
+                              id="saveFirstName" placeholder="N° Pièce parents" formControlName="NumeroPieceParent"
+                              (blur)="GetDocument(EnumTypeDocument.CarteNationnale)"
+                              required="required" />
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row" *ngIf="TypeNationnaliteId==EnumTypeNationnalite.Declaration">
+                  <div class="col-sm-6">
+                    <div class="input input--secondary">
+                      <label for="saveFirstName">N° Certificat d'acquisition</label>
+                      <input type="text"
+                          id="saveFirstName" placeholder="NumeroAcquisition" formControlName="NumeroAcquisition"
+                          required="required" />
+                    </div>
+                </div>
+
+                  <div class="col-sm-6">
+                      <div class="input input--secondary">
+                        <label for="saveFirstName">N° Extrait De Naissance *</label>
+                        <input type="text"
+                            id="saveFirstName" placeholder="NumeroExtrait"
+                            formControlName="NumeroExtrait" (blur)="GetDocument(EnumTypeDocument.ExtraitNaissance)"
+                            required="required" />
+                      </div>
+                  </div>
+
+
+              </div>
+
+
+              <div class="row" *ngIf="TypeNationnaliteId==EnumTypeNationnalite.Mariage">
+                <div class="col-sm-6">
+                  <div class="input input--secondary">
+                    <label for="saveFirstName">N° Extrait Acte de mariage / Livret de famille</label>
+                    <input type="text"
+                        id="saveFirstName" placeholder="N° Pièce du père" formControlName="NumeroActeMariage"
+                        required="required" />
+                  </div>
+              </div>
+
+                <div class="col-sm-6">
+                    <div class="input input--secondary">
+                      <label for="saveFirstName">N° Certificat Nationnalité de l'epoux *</label>
+                      <input type="text"
+                          id="saveFirstName" placeholder="N° Pièce du père" formControlName="NumeroCertificatNationnalite"
+                          required="required" />
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="input input--secondary">
+                    <label for="saveFirstName">N° Attestation de non déclination *</label>
+                    <input type="text"
+                        id="saveFirstName" placeholder="N° Pièce du père" formControlName="NumeroNonDeclination"
+                        required="required" />
+                  </div>
+              </div>
+
+
+            </div>
+
+                  </form>
+                </mat-step>
+              </mat-stepper>
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="button button--effect" (click)="goBack(stepper)" *ngIf="stepper.selectedIndex!=0">Retour</button>
+                <button type="submit" class="button button--effect" (click)="goForward(stepper)" *ngIf="stepper.selectedIndex!=1">Suivant</button>
+              </div>
+
+
+
+              <div class="investment-table">
+                <div class="intro">
+                    <h5>Résultat(s) recherche</h5>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th>TYPE DE DOCUMENT</th>
+                            <th>DATE</th>
+                            <th>VISUALISER</th>
+                            <!-- <th>STATUS</th> -->
+                        </tr>
+                        <tr *ngFor="let item of Result">
+                            <td>
+                                {{item.Libelle}}
+                            </td>
+                            <td>{{item.Date |date }}</td>
+                            <td>
+                              <button data-bs-toggle="modal" data-bs-target="#myModal"data-bs-toggle="modal" data-bs-target="#myModal" (click)="ViewDocument(item.LienDocument)">
+                                <img src="assets/images/icons/PDF_icon.png" style="width: 40px;" alt="Investment"/>
+                              </button>
+                            </td>
+                            <!-- <td><span class="process"></span>En attente de validation</td> -->
+                        </tr>
+                        <tr>
+                          <td *ngIf="Result.length!=0">
+                            <button type="submit" class="button button--effect" style="background-color: #e18d61;">Valider</button>
+                            <button type="submit" class="button button--effect" style="background-color: #d56767;">Rejeter</button>
+                          </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div>
+            </div>
+
+          </div>
+
+      </div>
+  </div>
+</div>
+

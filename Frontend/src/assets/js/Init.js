@@ -145,6 +145,12 @@ function Notification()
 }
 
 
+function GetTypeNationnaliteId()
+{
+  return $("#TypeNationnalite").val()
+}
+
+
 
 
 

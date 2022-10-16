@@ -1,0 +1,45 @@
+.regi__type1
+{
+  text-align: center;
+}
+
+::ng-deep .matStepLabel
+{
+  width: 700px;
+}
+
+.invalid-feedback
+{
+  margin-top: 1rem;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container
+{
+  width: 50%;
+  margin: auto;
+}
+
+::ng-deep .mat-horizontal-content-container
+{
+  overflow: inherit;
+}
+
+.nice-select.niceSelect{
+  margin-bottom: 50%;
+}
+
+.main__content-dashboard
+{
+  line-height: 1.5;
+  overflow: inherit;
+}
+
+.demo-stepper
+{
+  color: white;
+}
+
+select#TypeNationnalite
+{
+  font-size: 100%;
+}
