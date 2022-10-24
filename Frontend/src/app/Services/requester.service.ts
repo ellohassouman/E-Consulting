@@ -38,27 +38,27 @@ export class RequesterService {
     private FormBuilder : FormBuilder,
 )
 {
-  router.events.subscribe((event) => {
+//   router.events.subscribe((event) => {
 
 
-    if (event instanceof NavigationEnd) {
-        if(window.location.protocol=='http:')
-        {
-          if(!window.location.href.includes('localhost'))
-          {
-            Swal.fire(
-              'Information',
-              'Vous serrez redirigé vers une connexion sécurisée',
-              'info'
-            ).then(async (result) => {
-              if (result.isConfirmed) {
-                window.location.href=window.location.href.replace('http','https');
-              }
-            })
-          }
-        }
-    }
-});
+//     if (event instanceof NavigationEnd) {
+//         if(window.location.protocol=='http:')
+//         {
+//           if(!window.location.href.includes('localhost'))
+//           {
+//             Swal.fire(
+//               'Information',
+//               'Vous serrez redirigé vers une connexion sécurisée',
+//               'info'
+//             ).then(async (result) => {
+//               if (result.isConfirmed) {
+//                 window.location.href=window.location.href.replace('http','https');
+//               }
+//             })
+//           }
+//         }
+//     }
+// });
 
 }
 

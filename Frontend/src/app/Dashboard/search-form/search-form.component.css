@@ -15,7 +15,7 @@
 
 ::ng-deep .mat-horizontal-stepper-header-container
 {
-  width: 50%;
+  width: 55%;
   margin: auto;
 }
 
@@ -42,4 +42,9 @@
 select#TypeNationnalite
 {
   font-size: 100%;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container span
+{
+  color: white !important;
 }
